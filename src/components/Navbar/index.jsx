@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar () {
   return (
     <nav>
-      <div className={'links-container'}>
+      <div>
         <div className={'link'}>
           <Link to='/'>
             Clima local
