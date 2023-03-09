@@ -13,50 +13,68 @@ export default function Inputs ({adress}) {
 
 	return (
 		<>
-		<label>Endereço/Rua:</label>
-			<input 
+		<label className="flex flex-col font-bold px-10 py-2">Endereço/Rua:
+			<input
+			  className="text-center text-dark-200"
 				value={logradouro || ""}
 				readOnly
 			/>
-			<label>Complemento:</label>
+		</label>
+		<label className="flex flex-col font-bold px-10 py-2">Complemento:
 			<input
+			  className="text-center text-dark-200"
 			  value={complemento || ""}
 				readOnly
 			/>
-			<label>Bairro:</label>
+		</label>
+		<label className="flex flex-col font-bold px-10 py-2">Bairro:
 			<input
+			  className="text-center text-dark-200"
 			  value={bairro || ""}
 				readOnly
 			/>
-			<label>Cidade:</label>
+		</label>
+		<label className="flex flex-col font-bold px-10 py-2">Cidade:
 			<input
+			  className="text-center text-dark-200"
 				value={localidade || ""}
 				readOnly
 			/>
-			<label>UF:</label>
+		</label>
+		<label className="flex flex-col font-bold px-10 py-2">UF:
 			<input
+			  className="text-center text-dark-200"
 				value={uf || ""}
 				readOnly
 			/>
-			<label>IBGE:</label> 
+		</label>
+		<label className="flex flex-col font-bold px-10 py-2">IBGE:
 			<input
+			  className="text-center text-dark-200"
 				value={ibge || ""}
 				readOnly
 			/>
-			<label>Gia:</label>
+		</label> 
+		<label className="flex flex-col font-bold px-10 py-2">Gia:
 			<input
+			  className="text-center text-dark-200"
 				value={gia || ""}
 				readOnly
 			/>
-			<label>DDD:</label>
-			<input 
+		</label> 
+		<label className="flex flex-col font-bold px-10 py-2">DDD:
+			<input
+			  className="text-center text-dark-200"
 				value={ddd || ""}
 				readOnly/>
-			<label>Siafi:</label>
+		</label>
+		<label className="flex flex-col font-bold px-10 py-2 pb-10">Siafi:
 			<input
+			  className="text-center text-dark-200"
 				value={siafi || ""}
 				readOnly
 			/>
+		</label>
 		</>
 	)
 };

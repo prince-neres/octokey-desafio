@@ -13,7 +13,7 @@ const WeatherInfo = (props) => {
   const {name, value} = props;
   return (
     <div>
-      <img src={WeatherInfoIcons[name]} alt="Ícone de informação do clima"/>
+      <img src={WeatherInfoIcons[name]} alt="Ícone de informação do clima" className="h-10 w-10"/>
         <p>
           {value}
           <span>{name}</span>
@@ -36,7 +36,7 @@ const WeatherCard = (props) => {
 					<span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
 					{`  |  ${weather?.weather[0].description}`}
 				</div>
-				<img src={WeatherIcons[weather?.weather[0].icon]} alt="Ícone de clima" />
+				<img src={WeatherIcons[weather?.weather[0].icon]} alt="Ícone de clima" className="h-15 w-15"/>
 			</div>
 			<p>{`${weather?.name}, ${weather?.sys?.country}`}</p>
 

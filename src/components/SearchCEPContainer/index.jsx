@@ -15,9 +15,10 @@ export default function SearchCEPContainer () {
 	}, [cep]);
 
 	return (
-		<div>
-			<label> Digite o cep:
+		<div className="bg-light-200 dark:bg-dark-200 text-center rounded-xl m-auto xl:w-1/3 lg:w-1/2 md:w-3/4">
+			<label className="flex flex-col font-bold px-10 py-2 pt-8">Digite o cep:
 				<input
+						className="text-center text-dark-200"
 						type="number"
 						name="cep"
 						maxLength={8}
@@ -25,7 +26,7 @@ export default function SearchCEPContainer () {
 						onChange={(e) => setCEP(e.target.value)}
 				/>
 			</label>
-			<Inputs adress={adress} />
+			<Inputs adress={adress}/>
 		</div>
 	)
 };

@@ -34,7 +34,7 @@ export default function Weather() {
   }, []);
 
   return (
-    <div>
+    <div className="m-auto">
       <p>Weather App</p>
       {
         weather

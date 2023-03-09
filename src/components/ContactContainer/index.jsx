@@ -13,7 +13,7 @@ export default function Form () {
 	};
 
 	return (
-		<form onSubmit={sendMessage}>
+		<form onSubmit={sendMessage} className="flex flex-col">
 			<label htmlFor="name">Nome</label>
 			<input
 				id="name"

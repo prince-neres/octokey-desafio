@@ -1,27 +1,29 @@
-import { Link } from 'react-router-dom';
-import { MoonIcon } from '@heroicons/react/24/solid';
+import { Link, useLocation  } from "react-router-dom";
+import ToggleTheme from "../ToggleTheme";
 
 export default function Navbar () {
+	const location = useLocation();
+
   return (
-    <nav className="flex items-center h-20 bg-gray-500 justify-between px-10 sm:rounded-xl sm:m-5">
+    <nav className="flex items-center h-20 bg-light-200 dark:bg-dark-200 justify-between px-10 sm:rounded-xl sm:m-5">
 			<div className="flex items-center">
-        <div className="text-gray-100 px-5">
-          <Link to='/'>
+        <div className="px-5">
+          <Link to="/" className={location.pathname === "/" ? "font-bold" : ""}>
             Clima local
           </Link>
         </div>
-        <div className="text-gray-100 px-5">
-          <Link to='/contact'>
+        <div className="px-5">
+          <Link to="/contact" className={location.pathname === "/contact" ? "font-bold" : ""}>
             Contato
           </Link>
         </div>
-        <div className="text-gray-100 px-5">
-          <Link to='/search_cep'>
+        <div className="px-5">
+          <Link to="/search_cep" className={location.pathname === "/search_cep" ? "font-bold" : ""}>
             Busca CEP
           </Link>
         </div>
 			</div>
-			<MoonIcon className="h-14 text-gray-100 hidden sm:block cursor-pointer"/>
+			<ToggleTheme />
     </nav>
   )
 };
