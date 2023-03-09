@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { geoFindMe } from "../../commons/utils";
 import WeatherCard from "./WeatherCard";
 
 export const WeatherIcons = {
@@ -19,24 +18,28 @@ export const WeatherIcons = {
   "11n": "weather-icons/storm.png",
 };
 
+function getPosition() {
+    return new Promise((resolve, reject) => 
+        navigator.geolocation.getCurrentPosition(resolve, reject)
+    );
+};
+
 export default function Weather() {
 	const key = 'ecb6371f9611194ce558f5867543f019';
-  const [weather, updateWeather] = useState();
+  const [weather, updateWeather] = useState(JSON.parse(localStorage.getItem("weather")));
+	const [ coordinates, setCoordinates ] = useState(JSON.parse(localStorage.getItem("coordinates")));
 
   useEffect(() => {
-		geoFindMe();
-	  const weather_data = JSON.parse(localStorage.getItem("weather"));
-		const { latitude, longitude} = JSON.parse(localStorage.getItem("coordinates"));
-
-    const fetchWeatherCity = async () => {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`);
+		const fetchWeatherCity = async () => {
+			const position = await getPosition();
+			localStorage.setItem("coordinates", JSON.stringify({"latitude": String(position.coords.latitude), "longitude": String(position.coords.longitude)}));
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${key}`);
       const json = await response.json();
 			localStorage.setItem("weather", JSON.stringify(json));
-      updateWeather(json);
+			updateWeather(json);
     }
-
-    weather_data ? updateWeather(weather_data) : fetchWeatherCity().catch(console.error);
-  }, []);
+    fetchWeatherCity().catch(console.error);
+  }, [coordinates]);
 
   return (
     <div className="shadow-lg bg-light-200 dark:bg-dark-200 text-center rounded-xl m-auto xl:w-1/3 lg:w-1/2 md:w-3/4 p-10">
@@ -44,7 +47,12 @@ export default function Weather() {
       {
         weather
         ? (<WeatherCard weather={weather} />)
-        : (<p>Buscando informações sobre sua localização...</p>)
+        : (
+						<>
+							<p>Buscando informações sobre sua localização...</p>
+					 		<p>Verifique se você liberou o acesso a sua localização, se sim, recarregue a página.</p>
+					  </>
+					)
       }
     </div>
   )
