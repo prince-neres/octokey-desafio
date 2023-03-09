@@ -17,7 +17,6 @@ function geoFindMe() {
     console.log(message)
   } else {
     message = "Locating…";
-    console.log(message);
     navigator.geolocation.getCurrentPosition(success, error);
   }
 };

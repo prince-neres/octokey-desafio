@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 
 export default function Base () {
   return (
@@ -9,7 +8,6 @@ export default function Base () {
       <div>
         <Outlet />
       </div>
-      <Footer />
     </div>
   )
 };
