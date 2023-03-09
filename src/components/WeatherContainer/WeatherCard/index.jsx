@@ -12,9 +12,9 @@ export const WeatherInfoIcons = {
 const WeatherInfo = (props) => {
   const {name, value} = props;
   return (
-    <div>
-      <img src={WeatherInfoIcons[name]} alt="Ícone de informação do clima" className="h-10 w-10"/>
-        <p>
+    <div className="flex flex-row justify-evenly items-center w-1/2 pt-5">
+      <img src={WeatherInfoIcons[name]} alt="Ícone de informação do clima" className="w-1/6"/>
+        <p className="flex flex-col">
           {value}
           <span>{name}</span>
         </p>
@@ -31,17 +31,17 @@ const WeatherCard = (props) => {
 
   return (
 		<>
-			<div>
-				<div>
+			<div className="flex flex-row justify-between items-center m-auto">
+				<div className="m-auto">
 					<span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
 					{`  |  ${weather?.weather[0].description}`}
 				</div>
-				<img src={WeatherIcons[weather?.weather[0].icon]} alt="Ícone de clima" className="h-15 w-15"/>
+				<img src={WeatherIcons[weather?.weather[0].icon]} alt="Ícone de clima" className="w-1/3"/>
 			</div>
-			<p>{`${weather?.name}, ${weather?.sys?.country}`}</p>
+			<p className="m-auto font-bold">{`${weather?.name}, ${weather?.sys?.country}`}</p>
 
-			<p>Weather Info</p>
-			<div>
+			<p className="text-start font-bold">Weather Info</p>
+			<div className="flex flex-row justify-evenly items-center m-auto flex-wrap w-3/4">
 				<WeatherInfo name={isDay ? "sunset" : "sunrise"}
 					value={`${getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}`}
 				/>
