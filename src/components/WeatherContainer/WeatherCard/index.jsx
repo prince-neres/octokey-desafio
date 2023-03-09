@@ -16,7 +16,7 @@ const WeatherInfo = (props) => {
       <img src={WeatherInfoIcons[name]} alt="Ícone de informação do clima" className="w-1/6"/>
         <p className="flex flex-col">
           {value}
-          <span>{name}</span>
+          <span className="capitalize">{name}</span>
         </p>
     </div>
   )
@@ -33,12 +33,12 @@ const WeatherCard = (props) => {
 		<>
 			<div className="flex flex-row justify-between items-center m-auto">
 				<div className="m-auto">
-					<span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
+					<span className="font-bold text-3xl">{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
 					{`  |  ${weather?.weather[0].description}`}
 				</div>
 				<img src={WeatherIcons[weather?.weather[0].icon]} alt="Ícone de clima" className="w-1/3"/>
 			</div>
-			<p className="m-auto font-bold">{`${weather?.name}, ${weather?.sys?.country}`}</p>
+			<p className="m-auto font-bold text-2xl pb-5">{`${weather?.name}, ${weather?.sys?.country}`}</p>
 
 			<p className="text-start font-bold">Weather Info</p>
 			<div className="flex flex-row justify-evenly items-center m-auto flex-wrap w-3/4">

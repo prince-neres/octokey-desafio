@@ -34,12 +34,12 @@ export default function Weather() {
   }, []);
 
   return (
-    <div className="bg-light-200 dark:bg-dark-200 text-center rounded-xl m-auto xl:w-1/3 lg:w-1/2 md:w-3/4 p-10">
-      <p className="font-bold">Weather App</p>
+    <div className="shadow-lg bg-light-200 dark:bg-dark-200 text-center rounded-xl m-auto xl:w-1/3 lg:w-1/2 md:w-3/4 p-10">
+      <p className="font-bold text-xl">Weather App</p>
       {
         weather
         ? (<WeatherCard weather={weather} />)
-        : (<p>Buscando informações sobre cidade...</p>)
+        : (<p>Buscando informações sobre sua localização...</p>)
       }
     </div>
   )

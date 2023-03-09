@@ -15,10 +15,10 @@ export default function SearchCEPContainer () {
 	}, [cep]);
 
 	return (
-		<div className="bg-light-200 dark:bg-dark-200 text-center rounded-xl m-auto xl:w-1/3 lg:w-1/2 md:w-3/4">
-			<label className="flex flex-col font-bold px-10 py-2 pt-8">Digite o cep:
+		<div className="shadow-lg bg-light-200 dark:bg-dark-200 pb-10 text-center rounded-xl m-auto flex flex-row flex-wrap lg:w-3/4 md:w-1/2">
+			<label className="flex flex-col font-bold px-10 py-2 pt-8 m-auto">Digite o cep:
 				<input
-						className="text-center text-dark-200"
+						className="text-center text-dark-200 focus:outline-none mt-2 rounded-lg p-2"
 						type="number"
 						name="cep"
 						maxLength={8}
