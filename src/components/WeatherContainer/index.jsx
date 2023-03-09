@@ -20,16 +20,18 @@ export const WeatherIcons = {
 };
 
 export default function Weather() {
+	const key = 'ecb6371f9611194ce558f5867543f019'
   const [weather, updateWeather] = useState();
 
   useEffect(() => {
-		const { latitude, longitude } = JSON.parse(localStorage.getItem("coordinates"));
-		const weather_data = JSON.parse(localStorage.getItem("weather")) 
+		geoFindMe();
+	  const weather_data = JSON.parse(localStorage.getItem("weather"));
+		const { latitude, longitude} = JSON.parse(localStorage.getItem("coordinates"));
 
     const fetchWeatherCity = async () => {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=ecb6371f9611194ce558f5867543f019`);
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`);
       const json = await response.json();
-			localStorage.setItem("weather", JSON.stringify(json))
+			localStorage.setItem("weather", JSON.stringify(json));
       updateWeather(json);
     }
 
