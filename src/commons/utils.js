@@ -8,15 +8,15 @@ function geoFindMe() {
   };
 
   const error = () => {
-    message = "Unable to retrieve your location";
-    console.log(message);
+    message = "Voçê deve permitir acessoa sua localização!";
+    alert(message);
   };
 
   if (!navigator.geolocation) {
-    message = "Geolocation is not supported by your browser";
-    console.log(message)
+    message = "Localização não é suportada no seu navegador";
+    alert(message)
   } else {
-    message = "Locating…";
+    message = "Localizando...";
     navigator.geolocation.getCurrentPosition(success, error);
   }
 };
