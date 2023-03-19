@@ -40,7 +40,7 @@ const WeatherCard = (props) => {
 			</div>
 			<p className="m-auto font-bold text-2xl pb-5">{`${weather?.name}, ${weather?.sys?.country}`}</p>
 
-			<p className="text-start font-bold">Informações sobre cima</p>
+			<p className="text-start font-bold">Informações sobre clima</p>
 			<div className="flex flex-row justify-evenly items-center m-auto flex-wrap w-3/4">
 				<WeatherInfo name={isDay ? "sunset" : "sunrise"}
 					value={`${getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}`}
