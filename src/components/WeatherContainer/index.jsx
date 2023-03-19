@@ -43,7 +43,7 @@ export default function Weather() {
 
   return (
     <div className="shadow-lg bg-light-200 dark:bg-dark-200 text-center rounded-xl m-auto xl:w-1/3 lg:w-1/2 md:w-3/4 p-10">
-      <p className="font-bold text-xl">Cilma local</p>
+      <p className="font-bold text-xl">Clima local</p>
       {
         weather
         ? (<WeatherCard weather={weather} />)
